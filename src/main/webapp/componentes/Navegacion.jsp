@@ -36,8 +36,9 @@
                     <c:if test="${sessionScope.usuario != null}">
                         <span class="btn btn-light">${sessionScope.usuario.nombresCompletos()}</span>
                         &nbsp;
-                        <a href="AuthControlador?accion=logout" class="btn btn-dark">
+                        <a href="AuthControlador?accion=logout" class="btn btn-dark"
                             <i class="fa fa-sign-out-alt"></i> Cerrar Sesion
+                        </a>
                     </c:if>
                     
             </form>
