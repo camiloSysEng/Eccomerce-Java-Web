@@ -19,7 +19,7 @@ public class AuthDAO {
         
         try{
             cn = Conexion.getConnection();
-            String sql = "select * from where correo = ? and password = ?";
+            String sql = "select * from Cliente where correo = ? and password = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, correo);
             ps.setString(2, password);
