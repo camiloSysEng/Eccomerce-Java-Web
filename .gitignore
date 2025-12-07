@@ -1,0 +1,19 @@
+# NetBeans 
+/nbproject/private/ 
+/build/ 
+/dist/ 
+/.nb-gradle/ 
+ECHO est  activado.
+# IntelliJ 
+/.idea/ 
+/*.iml 
+ECHO est  activado.
+# Java 
+*.class 
+*.jar 
+*.war 
+/target/ 
+ECHO est  activado.
+# Sistema 
+.DS_Store 
+Thumbs.db 
