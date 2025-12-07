@@ -12,7 +12,7 @@ public class Cliente {
     
     
     public String nombresCompletos(){
-        return (nombres + "" +apellidos).toUpperCase();
+        return (nombres + " " +apellidos).toUpperCase();
     }
 
     public int getIdCliente() {
