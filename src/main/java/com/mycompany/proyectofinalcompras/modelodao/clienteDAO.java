@@ -20,14 +20,14 @@ public class clienteDAO {
         
         try{
             cn = Conexion.getConnection();
-            String sql = "insert into Cliente(nombres,apellidos,correo,password) "
+            String sql = "insert into Cliente(nombres,telefono,apellidos,correo,password) "
                     + "values(?,?,?,?,?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, obj.getNombres().trim());
-            ps.setString(1, obj.getApellidos().trim());
-            ps.setString(1, obj.getTelefono().trim());
-            ps.setString(1, obj.getCorreo().trim());
-            ps.setString(1, obj.getPassword().trim());
+            ps.setString(2, obj.getApellidos().trim());
+            ps.setString(3, obj.getTelefono().trim());
+            ps.setString(4, obj.getCorreo().trim());
+            ps.setString(5, obj.getPassword().trim());
             
             result = ps.executeUpdate();
         }catch(Exception ex){
@@ -51,7 +51,7 @@ public class clienteDAO {
         
         try{
             cn = Conexion.getConnection();
-            String sql = "select count(1) form Cliente where correo = ?";
+            String sql = "select count(1) from Cliente where correo = ?";
             ps = cn.prepareStatement(sql);
             ps.setString(1, correo);
             rs = ps.executeQuery();
