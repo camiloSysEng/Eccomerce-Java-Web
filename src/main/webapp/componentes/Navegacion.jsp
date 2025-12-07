@@ -1,3 +1,6 @@
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <nav class="navbar navbar-expand-lg" style="background-color: gray">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
@@ -20,14 +23,23 @@
                     </a>
                 </li>
             </ul>
-            <form class="d-flex" role="search">
-                <a href="ClienteControlador?accion=nuevo" class="btn btn-dark">
-                    <i class="fas fa-user-plus"></i> Registrarse
-                </a>
-                &nbsp;
-                <a href="#" class="btn btn-dark">
-                    <i class="fas fa-user-lock"></i> Login                    
-                </a>
+            <form class="d-flex">
+                <c:if test="${sessionScope.usuario ==null}">
+                    <a href="ClienteControlador?accion=nuevo" class="btn btn-dark">
+                        <i class="fas fa-user-plus"></i> Registrarse
+                    </a>
+                    &nbsp;
+                    <a href="AuthControlador?accion=login" class="btn btn-dark">
+                        <i class="fas fa-user-lock"></i> Login                    
+                    </a>
+                </c:if>
+                    <c:if test="${sessionScope.usuario != null}">
+                        <span class="btn btn-light">${sessionScope.usuario.nombresCompletos()}</span>
+                        &nbsp;
+                        <a href="AuthControlador?accion=logout" class="btn btn-dark">
+                            <i class="fa fa-sign-out-alt"></i> Cerrar Sesion
+                    </c:if>
+                    
             </form>
         </div>
     </div>

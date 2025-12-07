@@ -8,6 +8,10 @@
         <servlet-name>ClienteControlador</servlet-name>
         <servlet-class>com.mycompany.proyectofinalcompras.controlador.ClienteControlador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AuthControlador</servlet-name>
+        <servlet-class>com.mycompany.proyectofinalcompras.controlador.AuthControlador</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CarritoControlador</servlet-name>
         <url-pattern>/CarritoControlador</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>ClienteControlador</servlet-name>
         <url-pattern>/ClienteControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AuthControlador</servlet-name>
+        <url-pattern>/AuthControlador</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -9,6 +9,7 @@ import java.sql.ResultSet;
 
 
 public class clienteDAO {
+    
     private Connection cn = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
