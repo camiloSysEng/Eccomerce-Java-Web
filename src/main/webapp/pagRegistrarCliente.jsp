@@ -26,7 +26,7 @@
                                     <div class ="col-sm-6">
                                         <div class ="mb-3">
                                             <label>Nombres : <span class="obligatorio">(*)</span> </label>
-                                            <input  value="${Cliente.nombres}" type="text" class="form-control" required=""
+                                            <input  value="${cliente.nombres}" type="text" class="form-control" required=""
                                                     name = "nombres" placeholder ="Ingrese Su Nombre"/>
                                         </div>       
                                     </div>
@@ -35,7 +35,7 @@
                                     <div class ="col-sm-6">
                                         <div class ="mb-3">
                                             <label>Apellidos : <span class="obligatorio">(*)</span> </label>
-                                            <input value="${Cliente.apellidos}" type="text" class="form-control" required=""
+                                            <input value="${cliente.apellidos}" type="text" class="form-control" required=""
                                                    name = "apellidos" placeholder ="Ingrese Sus Apellidos"/>
                                         </div>       
                                     </div>
@@ -46,7 +46,7 @@
                                     <div class ="col-sm-12">
                                         <div class ="mb-3">
                                             <label>Telefono : </label>
-                                            <input value="${Cliente.telefono}" type="tel" class="form-control" 
+                                            <input value="${cliente.telefono}" type="tel" class="form-control" 
                                                    name = "telefono" placeholder ="Ingrese Su Telefono"/>
                                         </div>       
                                     </div>                                                           
@@ -56,7 +56,7 @@
                                     <div class ="col-sm-12">
                                         <div class ="mb-3">
                                             <label>Correo Electronico: <span class="obligatorio">(*)</span> </label>
-                                            <input value="${Cliente.correo}" type="email" class="form-control" 
+                                            <input value="${cliente.correo}" type="email" class="form-control" 
                                                    name = "correo" placeholder ="Ingrese Su Correo Electronico" required=""/>
                                         </div>       
                                     </div>                                                           
@@ -66,7 +66,7 @@
                                     <div class ="col-sm-12">
                                         <div class ="mb-3">
                                             <label>Contraseña : <span class="obligatorio">(*)</span> </label>
-                                            <input value="${Cliente.password}" type="password" class="form-control" required=""
+                                            <input value="${cliente.password}" type="password" class="form-control" required=""
                                                    name = "password" placeholder ="Ingrese Su Contraseña"/>
                                         </div>       
                                     </div>                                                           
