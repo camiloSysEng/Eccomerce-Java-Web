@@ -1,5 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -39,9 +41,9 @@
                                                 <img src="imagenes/img/productos/${item.producto.imagen}" width="50" height="60" alt="${item.producto.nombre}"/>
                                             </td>
                                             <td>${item.producto.nombre}</td>
-                                            <td>${item.producto.precio}</td>
+                                            <td>cop <fmt:formatNumber value="${item.producto.precio}" type="number" maxFractionDigits="0"/></td>
                                             <td>${item.cantidad}</td>
-                                            <td>${item.Importe()}</td>
+                                            <td>cop <fmt:formatNumber value="${item.Importe()}" type="number" maxFractionDigits="0" /> </td>
                                             <td>
                                                 <a href="CarritoControlador?accion=eliminar&indice=${loop.index}" title="Eliminar" class="btn btn-danger btn-sm">
                                                     <i class="fa fa-trash-alt"></i>
@@ -67,7 +69,7 @@
                                 <hr />
                                 <div class="d-flex justify-content-between mb-4">
                                     <p class="mb-2">Total</p>
-                                    <p class="mb-2">${total}</p>
+                                    <p class="mb-2">cop <fmt:formatNumber value="${total}" type="number" maxFractionDigits="0" /></p>
                                 </div>
                                 <button class=" btn btn-warning btn-block btn-lg">
                                     <div class="d-flex justify-content-between">
