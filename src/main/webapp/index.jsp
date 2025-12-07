@@ -1,5 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,8 +12,7 @@
     <body>
         <jsp:include page="componentes/Navegacion.jsp"/>
 
-
-        <div class="container-fluid mt-2" >
+        <div class="container-fluid mt-2">
             <h5>Catalogo de productos</h5>
             <hr />
 
@@ -20,17 +20,23 @@
                 <c:forEach items="${productos}" var="item">
                     <div class="col-sm-3 mt-1">
                         <form action="CarritoControlador" method="get">
-                            <div class="card">
+                            <div class="card shadow-sm">
                                 <img src="imagenes/img/productos/${item.imagen}" width="100%" alt="${item.nombre}"/>
+
                                 <div class="card-body">
-                                    <p class="fw-bold">${item.nombre}</p>
+                                    <p class="fw-bold mb-1">${item.nombre}</p>
+
                                     <input type="hidden" name="accion" value="agregar">
                                     <input type="hidden" name="id" value="${item.idProd}">
+
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <button type="submit" class="btn-sm btn-primary">
-                                            <i class="fa fa-shopping-cart"></i> Agregar al carrito
+                                        <button type="submit" class="btn btn-primary btn-sm">
+                                            <i class="fa fa-shopping-cart"></i> Agregar
                                         </button>
-                                        <small class="fw-bold">${item.precio} </small>
+
+                                        <small class="fw-bold text-success">
+                                           cop $<fmt:formatNumber  value="${item.precio}" type="number" groupingUsed="true"/>
+                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -40,7 +46,7 @@
             </div>
         </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
