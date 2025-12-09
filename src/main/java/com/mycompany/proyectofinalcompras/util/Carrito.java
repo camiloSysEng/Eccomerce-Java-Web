@@ -1,12 +1,20 @@
-
 package com.mycompany.proyectofinalcompras.util;
 
 import com.mycompany.proyectofinalcompras.modelo.DetallePedido;
 import jakarta.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
-
+import java.util.List;
 
 public class Carrito {
+    
+    public List<DetallePedido> getItems(HttpServletRequest request) {
+        return ObtenerSesion(request);
+    }
+    
+
+    public List<DetallePedido> mapItemsADetalles(HttpServletRequest request) {
+        return ObtenerSesion(request);
+    }
     
     public void AgregarCarrito(DetallePedido detalle, HttpServletRequest request){
         ArrayList<DetallePedido> lista = ObtenerSesion(request);

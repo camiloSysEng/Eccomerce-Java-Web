@@ -14,8 +14,20 @@
     <body>
         <jsp:include page="componentes/Navegacion.jsp"/>
 
-
         <div class="container-fluid mt-2" >
+            
+            <c:if test="${not empty mensajeError}">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    ${mensajeError}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </c:if>
+            <c:if test="${not empty mensajeExito}">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    ${mensajeExito}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </c:if>
             <h5>Mi Carrito</h5>
             <hr />
 
@@ -71,12 +83,27 @@
                                     <p class="mb-2">Total</p>
                                     <p class="mb-2">cop <fmt:formatNumber value="${total}" type="number" maxFractionDigits="0" /></p>
                                 </div>
-                                <button class=" btn btn-warning btn-block btn-lg">
-                                    <div class="d-flex justify-content-between">
-                                        <span><i class="fa fa-credit-card "></i>PROCESAR</span>
-                                    </div>
-                                </button>
-                            </div>
+
+                                <c:choose>
+                                    <%-- CASO 1: USUARIO LOGUEADO --%>
+                                    <c:when test="${not empty sessionScope.usuarioLogueado}">
+                                        <a href="PedidoControlador" class="btn btn-success btn-block btn-lg w-100">
+                                            <div class="d-flex justify-content-between justify-content-center">
+                                                <span><i class="fa fa-credit-card me-2"></i>GENERAR COMPRA</span>
+                                            </div>
+                                        </a>
+                                    </c:when>
+
+                                    <%-- CASO 2: NO LOGUEADO --%>
+                                    <c:otherwise>
+                                        <a href="PagLogin.jsp" class="btn btn-warning btn-block btn-lg w-100">
+                                            <div class="d-flex justify-content-between justify-content-center">
+                                                <span>INICIAR SESIÓN</span>
+                                            </div>
+                                        </a>
+                                    </c:otherwise>
+                                </c:choose>
+                                </div>
                         </div>
                     </div>
                 </div>
