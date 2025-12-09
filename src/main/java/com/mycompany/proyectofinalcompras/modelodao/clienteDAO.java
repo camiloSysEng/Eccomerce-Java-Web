@@ -20,7 +20,7 @@ public class clienteDAO {
         
         try{
             cn = Conexion.getConnection();
-            String sql = "insert into Cliente(nombres,telefono,apellidos,correo,password) "
+            String sql = "insert into Cliente(nombres,apellidos,telefono,correo,password) "
                     + "values(?,?,?,?,?)";
             ps = cn.prepareStatement(sql);
             ps.setString(1, obj.getNombres().trim());
