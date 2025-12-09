@@ -7,6 +7,9 @@ public class Pedido {
     private int idCliente;
     private String fecha;
     private double total;
+    
+    private String estado; 
+    
     private List<DetallePedido> detalles;
 
     public Pedido() {
@@ -42,6 +45,14 @@ public class Pedido {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
     public List<DetallePedido> getDetalles() {

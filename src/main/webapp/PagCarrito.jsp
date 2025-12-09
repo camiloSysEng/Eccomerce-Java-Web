@@ -87,8 +87,7 @@
 
                                 <c:choose>
                                     
-                                    <%-- CASO 1: CARRITO VACÍO -> BOTÓN BLOQUEADO (DISABLED) --%>
-                                    <c:when test="${empty carrito or carrito.size() == 0}">
+                                    <c:when test="${empty carrito}">
                                         <button class="btn btn-warning btn-block btn-lg w-100" disabled>
                                             <div class="d-flex justify-content-between">
                                                 <span><i class="fa fa-credit-card"></i> PROCESAR</span>
@@ -96,8 +95,8 @@
                                         </button>
                                     </c:when>
 
-                                    <%-- CASO 2: NO LOGUEADO -> REDIRIGE A LOGIN --%>
-                                    <c:when test="${empty sessionScope.usuarioLogueado}">
+                                    <%-- AQUÍ EL CAMBIO: sessionScope.usuario --%>
+                                    <c:when test="${empty sessionScope.usuario}">
                                         <a href="PagLogin.jsp" class="btn btn-warning btn-block btn-lg w-100">
                                             <div class="d-flex justify-content-between">
                                                 <span><i class="fa fa-credit-card"></i> PROCESAR</span>
@@ -105,9 +104,8 @@
                                         </a>
                                     </c:when>
 
-                                    <%-- CASO 3: LOGUEADO Y CON PRODUCTOS -> GENERA PEDIDO --%>
                                     <c:otherwise>
-                                        <a href="PedidoControlador" class="btn btn-warning btn-block btn-lg w-100">
+                                        <a href="PedidoControlador?accion=generarCompra" class="btn btn-warning btn-block btn-lg w-100">
                                             <div class="d-flex justify-content-between">
                                                 <span><i class="fa fa-credit-card"></i> PROCESAR</span>
                                             </div>

@@ -13,16 +13,22 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a class="nav-link text-white" aria-current="page" href="index.jsp">
-                        <i class="fa fa-home"></i>Catalogo
+                        <i class="fa fa-home"></i> Catalogo
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="CarritoControlador?accion=listar">
                         <i class="fa fa-shopping-cart"></i>
-                        (<span class="fw-bold">${sessionScope.carrito !=null? sessionScope.carrito.size() : 0}</span>)Carrito
+                        (<span class="fw-bold">${sessionScope.carrito !=null? sessionScope.carrito.size() : 0}</span>) Carrito
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="PedidoControlador?accion=MisPedidos">
+                        <i class="fas fa-clipboard-list"></i> Mis Pedidos
                     </a>
                 </li>
             </ul>
+            
             <form class="d-flex">
                 <c:if test="${sessionScope.usuario ==null}">
                     <a href="ClienteControlador?accion=nuevo" class="btn btn-dark">
@@ -33,14 +39,13 @@
                         <i class="fas fa-user-lock"></i> Login                    
                     </a>
                 </c:if>
-                    <c:if test="${sessionScope.usuario != null}">
-                        <span class="btn btn-light">${sessionScope.usuario.nombresCompletos()}</span>
-                        &nbsp;
-                        <a href="AuthControlador?accion=logout" class="btn btn-dark"
-                            <i class="fa fa-sign-out-alt"></i> Cerrar Sesion
-                        </a>
-                    </c:if>
-                    
+                <c:if test="${sessionScope.usuario != null}">
+                    <span class="btn btn-light">${sessionScope.usuario.nombresCompletos()}</span>
+                    &nbsp;
+                    <a href="AuthControlador?accion=logout" class="btn btn-dark">
+                        <i class="fa fa-sign-out-alt"></i> Cerrar Sesion
+                    </a>
+                </c:if>     
             </form>
         </div>
     </div>
