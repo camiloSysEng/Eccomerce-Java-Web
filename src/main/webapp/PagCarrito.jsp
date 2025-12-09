@@ -28,6 +28,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </c:if>
+
             <h5>Mi Carrito</h5>
             <hr />
 
@@ -85,23 +86,34 @@
                                 </div>
 
                                 <c:choose>
-                                    <%-- CASO 1: USUARIO LOGUEADO --%>
-                                    <c:when test="${not empty sessionScope.usuarioLogueado}">
-                                        <a href="PedidoControlador" class="btn btn-success btn-block btn-lg w-100">
-                                            <div class="d-flex justify-content-between justify-content-center">
-                                                <span><i class="fa fa-credit-card me-2"></i>GENERAR COMPRA</span>
+                                    
+                                    <%-- CASO 1: CARRITO VACÍO -> BOTÓN BLOQUEADO (DISABLED) --%>
+                                    <c:when test="${empty carrito or carrito.size() == 0}">
+                                        <button class="btn btn-warning btn-block btn-lg w-100" disabled>
+                                            <div class="d-flex justify-content-between">
+                                                <span><i class="fa fa-credit-card"></i> PROCESAR</span>
+                                            </div>
+                                        </button>
+                                    </c:when>
+
+                                    <%-- CASO 2: NO LOGUEADO -> REDIRIGE A LOGIN --%>
+                                    <c:when test="${empty sessionScope.usuarioLogueado}">
+                                        <a href="PagLogin.jsp" class="btn btn-warning btn-block btn-lg w-100">
+                                            <div class="d-flex justify-content-between">
+                                                <span><i class="fa fa-credit-card"></i> PROCESAR</span>
                                             </div>
                                         </a>
                                     </c:when>
 
-                                    <%-- CASO 2: NO LOGUEADO --%>
+                                    <%-- CASO 3: LOGUEADO Y CON PRODUCTOS -> GENERA PEDIDO --%>
                                     <c:otherwise>
-                                        <a href="PagLogin.jsp" class="btn btn-warning btn-block btn-lg w-100">
-                                            <div class="d-flex justify-content-between justify-content-center">
-                                                <span>INICIAR SESIÓN</span>
+                                        <a href="PedidoControlador" class="btn btn-warning btn-block btn-lg w-100">
+                                            <div class="d-flex justify-content-between">
+                                                <span><i class="fa fa-credit-card"></i> PROCESAR</span>
                                             </div>
                                         </a>
                                     </c:otherwise>
+                                    
                                 </c:choose>
                                 </div>
                         </div>
